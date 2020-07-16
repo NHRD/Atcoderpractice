@@ -26,9 +26,8 @@ for i in range(n):
     s2e = []
 
 s2es = sorted(s2es)
-#print("in")
+
 #print(s2es)
-#print("ans")
 
 for i in range(len(s2es)-1):
     if s2es[i][1] < s2es[i+1][0]:
