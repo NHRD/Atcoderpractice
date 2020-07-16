@@ -15,7 +15,10 @@ for i in range(n):
     elif int(e[-1]) - 5 <= -1:
         e = e[:-1] + "5"
     else:
-        e = e[:-2] + str(e[-2] + 1) + "0"
+        if int(e[-2]) == 5:
+            e = str(int(e[:-2]) + 1) + "00"
+        else:
+            e = e[:-2] + str(int(e[-2]) + 1) + "0"
         
     s2e.append(s)
     s2e.append(e)
@@ -23,4 +26,19 @@ for i in range(n):
     s2e = []
 
 s2es = sorted(s2es)
-print(s2es)
+#print("in")
+#print(s2es)
+#print("ans")
+
+for i in range(len(s2es)-1):
+    if s2es[i][1] < s2es[i+1][0]:
+        print("{}-{}" .format(str(s2es[i][0]), str(s2es[i][1])))
+
+    elif s2es[i][1] >= s2es[i+1][0] and s2es[i][1] <= s2es[i+1][1]:
+        s2es[i+1][0] = s2es[i][0]
+    
+    elif s2es[i][0] <= s2es[i+1][0] and s2es[i][1] >= s2es[i+1][1]:
+        s2es[i+1][0] = s2es[i][0]
+        s2es[i+1][1] = s2es[i][1]
+
+print("{}-{}" .format(str(s2es[len(s2es)-1][0]), str(s2es[len(s2es)-1][1])))
