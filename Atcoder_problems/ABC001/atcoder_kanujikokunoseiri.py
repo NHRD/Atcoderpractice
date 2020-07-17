@@ -27,8 +27,6 @@ for i in range(n):
 
 s2es = sorted(s2es)
 
-#print(s2es)
-
 for i in range(len(s2es)-1):
     if s2es[i][1] < s2es[i+1][0]:
         print("{}-{}" .format(str(s2es[i][0]), str(s2es[i][1])))
