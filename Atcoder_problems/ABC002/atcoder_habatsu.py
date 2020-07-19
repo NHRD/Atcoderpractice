@@ -1,55 +1,46 @@
 n, m = map(int, input().split())
 
-if m == 0:
-    print("1")
-    exit()
+def exception(m):
+    if m == 0:
+        print("1")
+        exit()
 
-rels = []
-combs =[]
+def relations(m):
+    rels = []
+    i = m
+    while i < m:
+        rel = list(map(int, input().split()))
+        rels.append(rel)
+        rel = []
+        i = i - 1
+    rels = sorted(rels)
+    return rels
 
-for i in range(m):
-    rel = list(map(int, input().split()))
-    rels.append(rel)
-    rel = []
-
-rels = sorted(rels)
-#print(rels)
-
-
-#print(mb)
-pos = []
-res = 0
-prep = []
-
-for k in range(n):
-    mb = 2 ** (k + 1) - 1
-    poss = []
+def factions(n):
+    mb = 2 ** n - 1
+    facm = []
+    facms = []
+    facb = ""
     for i in range(mb):
-        bins = bin(i)[2:]
-        #print(bins)
-        sums = 0
-        for j in range(len(bins)):
-            sums = sums + int(bins[j])
-            #print(sums)
-        if sums == 2:
-            bins = "0" * (m - len(bins)) + bins
-            #print(bins)
-            for i in range(len(bins)):
-                if bins[i] == "1":
-                    pos.append(i+1)
-            poss.append(pos)
-            pos = []
-        else:
-            continue
-        print(poss)
-    for l in range(len(poss)):
-        print(poss)
-        if poss != rels:
-            #print(poss[l])
-            print(len(poss))
-            exit()
-        else:
-            prep = poss
-            print(prep)
-        
-#print(poss)
+        bi = str(bin(i + 1))[2:]
+        facb = "0" * (n - int(len(bi))) + bi 
+        print(facb)
+        for j in range(len(facb)):
+            if facb[len(facb) - j - 1] == "1":
+                facm.append(j + 1)
+        if facm not in facms:
+            facms.append(facm)
+        facm = []
+        facb = ""
+        #facms = sorted(facms)
+    return facms
+
+def judge(rels, facms):
+
+    return result
+
+print(exception(m))
+print(relations(m))
+result = factions(n)
+print(result)
+print(len(result))
