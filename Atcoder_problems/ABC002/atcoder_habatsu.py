@@ -19,6 +19,7 @@ rels = sorted(rels)
 #print(mb)
 pos = []
 res = 0
+prep = []
 
 for k in range(n):
     mb = 2 ** (k + 1) - 1
@@ -40,13 +41,15 @@ for k in range(n):
             pos = []
         else:
             continue
-        #print(poss)
+        print(poss)
     for l in range(len(poss)):
+        print(poss)
         if poss != rels:
             #print(poss[l])
             print(len(poss))
             exit()
         else:
-            continue
+            prep = poss
+            print(prep)
         
 #print(poss)
