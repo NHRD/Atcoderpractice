@@ -28,7 +28,7 @@ def factions(n):
         for j in range(len(facb)):
             if facb[len(facb) - j - 1] == "1":
                 facm.append(j + 1)
-        if facm not in facms:
+        if facm not in facms and len(facm) > 1:
             facms.append(facm)
         facm = []
         facb = ""
@@ -36,19 +36,23 @@ def factions(n):
     return facms
 
 def testl(facms):
+    print(facms)
     for i in range(len(facms)):
+        print(facms[i])
         fac = facms[i]
         mb = 2 ** len(fac) - 1
         facm = []
         facms = []
+        sum = 0
         for j in range(mb):
             bi = str(bin(j + 1))[2:]
             facb = "0" * (len(fac) - len(bi)) + bi
             for k in range(len(facb)):
-                if bi[k] == "1":
+                if bi[k] == "1" and sum < 2:
                     facm.append(fac[k])
+                    sum += 1
                 facms.append(facm)
-            facm = []
+                facm = []
             facb = ""
     return facms
 
@@ -57,10 +61,8 @@ def judge(rels, facms):
         if facms[i] == rels:
             print(len(facms[i]))
             exit()
-            
 
-print(exception(m))
-print(relations(m))
 result = factions(n)
+#result2 = testl(result)
 print(result)
-print(len(result))
+#print(result2)
