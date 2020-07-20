@@ -11,7 +11,3 @@ if x_min >= 0 and x_max <= w:
         exit()
 print("No")
 
-i = 3
-while i > 0:
-    print("Hello world")
-    i = i - 1
