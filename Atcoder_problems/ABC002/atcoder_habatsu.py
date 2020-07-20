@@ -7,12 +7,10 @@ def exception(m):
 
 def relations(m):
     rels = []
-    i = m
-    while i < m:
+    for i in range(m):
         rel = list(map(int, input().split()))
         rels.append(rel)
         rel = []
-        i = i - 1
     rels = sorted(rels)
     return rels
 
@@ -47,12 +45,12 @@ def testl(facin):
         for j in range(mb):
             bi = str(bin(j + 1))[2:]
             facb = "0" * (len(fac) - len(bi)) + bi
-            print(facb)
+            #print(facb)
             #print(len(facb))
             for k in range(len(facb)):
                 #print(k)
                 if facb[k] == "1" and sum < 2:
-                    print(fac[k])
+                    #print(fac[k])
                     facm.append(fac[k])
                     sum += 1
             if facm not in facms and len(facm) > 1:
@@ -60,16 +58,26 @@ def testl(facin):
             sum = 0
             facm = []
             facb = ""
+    facms = sorted(facms)
     return facms
 
 def judge(rels, facms):
-    for i in range(len(facms)):
-        if facms[i] == rels:
-            print(len(facms[i]))
-            exit()
+    #print(rels)
+    #print(facms)
+    if facms == rels:
+        print(len(facms))
+        exit()
 
 #result = factions(n)
 #result2 = testl(result)
 #print(result)
 #print(result2)
 #print(testl([[1,2], [1,2,3]]))
+
+print("n = {}, m = {}" .format(n,m))
+rels = relations(m)
+exception(m)
+fac = factions(n)
+facms = testl(fac)
+print(facms)
+judge(rels, facms)
