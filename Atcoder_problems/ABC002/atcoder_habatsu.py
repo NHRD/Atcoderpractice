@@ -35,11 +35,11 @@ def factions(n):
         #facms = sorted(facms)
     return facms
 
-def testl(facms):
-    print(facms)
-    for i in range(len(facms)):
-        print(facms[i])
-        fac = facms[i]
+def testl(facin):
+    #print(facms)
+    for i in range(len(facin)):
+        #print(facms[i])
+        fac = facin[i]
         mb = 2 ** len(fac) - 1
         facm = []
         facms = []
@@ -47,12 +47,18 @@ def testl(facms):
         for j in range(mb):
             bi = str(bin(j + 1))[2:]
             facb = "0" * (len(fac) - len(bi)) + bi
+            print(facb)
+            #print(len(facb))
             for k in range(len(facb)):
-                if bi[k] == "1" and sum < 2:
+                #print(k)
+                if facb[k] == "1" and sum < 2:
+                    print(fac[k])
                     facm.append(fac[k])
                     sum += 1
+            if facm not in facms and len(facm) > 1:
                 facms.append(facm)
-                facm = []
+            sum = 0
+            facm = []
             facb = ""
     return facms
 
@@ -62,7 +68,8 @@ def judge(rels, facms):
             print(len(facms[i]))
             exit()
 
-result = factions(n)
+#result = factions(n)
 #result2 = testl(result)
-print(result)
+#print(result)
 #print(result2)
+#print(testl([[1,2], [1,2,3]]))
