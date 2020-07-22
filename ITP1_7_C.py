@@ -12,9 +12,9 @@ def hori_sum(num, r):
     for i in range(r):
         sum_i = sum(num[i])
         num[i].append(sum_i)
-        print(num[i])
+        print(" ".join([str(j) for j in num[i]]))
         nums.append(num[i])
-    print(nums)
+    #print(nums)
     return nums
 
 def verti_sum(nums, r, c):
@@ -28,12 +28,12 @@ def verti_sum(nums, r, c):
             sum_v = sum_v + nums[j][i]
         sums.append(sum_v)
         sum_v = 0
-    print(sums)
+    print(" ".join([str(i) for i in sums]))
     return sums
 
 nums = num_get(r)
 hori = hori_sum(nums, r)
-print(hori)
+#print(hori)
 verti_sum(hori, r, c)
 
 
