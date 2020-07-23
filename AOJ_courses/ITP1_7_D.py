@@ -12,12 +12,21 @@ def acq_ab(n):
 def calc(a, b, n, m, l):
     ans = 0
     for i in range(n):
-        for j in range(m):
-            for k in range(l):
-                ans = ans + a[] * b[]
+        for j in range(l):
+            for k in range(m):
+                ans = ans + a[i][k] * b[k][j]
+            if j == l - 1:
+                #print("j = {}".format(j))
+                print(ans)
+            else:
+                #print("j = {}".format(j))
+                print(ans, end=" ")
+            ans = 0
+    return 0
 
-#a = acq_ab(n)
-#print(a)
-#b = acq_ab(m)
-#print(b)
-calc([[1, 2], [0, 3], [4, 5]], [[1, 2, 1], [0, 3, 2]], 3, 2)
+#a = [[1, 2], [0, 3], [4, 5]]
+#b = [[1, 2, 1], [0, 3, 2]]
+#c = calc(a, b, 3, 2, 3)
+a = acq_ab(n)
+b = acq_ab(m)
+calc(a, b, n, m, l)
