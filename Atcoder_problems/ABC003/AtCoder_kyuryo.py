@@ -7,3 +7,4 @@ for i in range(1, n+1):
 
 result = 10000 * sum / n
 print(result)
+print("close")
