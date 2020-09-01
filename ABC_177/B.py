@@ -1,15 +1,28 @@
 s = input()
 t = input()
 
-res = 0
+mat = 0
+res = 1000
 
-for i in range(0, len(t)-1):
-    for j in range(len(t)):
-        if j + i <= len(t):
-            char = t[j:len(t) - i]
-            print(char)
-        if char in s:
-            res = len(char)
+ls = len(s)
+lt = len(t)
+#print(ls, lt)
+
+di = ls - lt
+
+for i in range(di + 1):
+    tag = s[i:i + lt]
+    #print(tag)
+    #print(t)
+    for j in range(lt):
+        if t[j] != tag[j]:
+            mat += 1
+    if mat <= res:
+        res = mat
+    #print(res)
+    mat = 0
+
+print(res)
 
 
 
